@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloom Date Ideas</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #2f3b2f;
+      background:
+        radial-gradient(circle at top left, rgba(255, 203, 219, 0.9), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(181, 228, 196, 0.9), transparent 35%),
+        linear-gradient(135deg, #fff7f2, #edf8ed 55%, #fff0f6);
+      overflow-x: hidden;
+    }
+
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .petal {
+      position: absolute;
+      top: -10vh;
+      width: 18px;
+      height: 28px;
+      background: rgba(255, 137, 174, 0.55);
+      border-radius: 70% 20% 70% 20%;
+      animation: fall linear infinite;
+      filter: blur(0.1px);
+    }
+
+    .petal:nth-child(1) { left: 8%; animation-duration: 11s; animation-delay: 0s; }
+    .petal:nth-child(2) { left: 22%; animation-duration: 14s; animation-delay: 2s; }
+    .petal:nth-child(3) { left: 40%; animation-duration: 10s; animation-delay: 1s; }
+    .petal:nth-child(4) { left: 58%; animation-duration: 13s; animation-delay: 4s; }
+    .petal:nth-child(5) { left: 76%; animation-duration: 12s; animation-delay: 3s; }
+    .petal:nth-child(6) { left: 90%; animation-duration: 15s; animation-delay: 5s; }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+      15% { opacity: 1; }
+      100% { transform: translateY(115vh) translateX(80px) rotate(360deg); opacity: 0; }
+    }
+
+    header {
+      position: relative;
+      z-index: 2;
+      padding: 28px 9%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #4e6b4e;
+    }
+
+    nav a {
+      margin-left: 24px;
+      color: #4f644f;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.25s;
+    }
+
+    nav a:hover {
+      color: #cc5f86;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      min-height: 80vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+      padding: 40px 9% 80px;
+    }
+
+    .hero-text {
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(255, 142, 174, 0.35);
+      color: #b84d74;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 35px rgba(120, 89, 89, 0.09);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 0.93;
+      color: #39553a;
+      margin-bottom: 24px;
+      text-shadow: 0 8px 30px rgba(93, 122, 93, 0.13);
+    }
+
+    .hero-text p {
+      max-width: 610px;
+      font-size: 1.18rem;
+      line-height: 1.8;
+      color: #5d705d;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button, .btn {
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 1rem;
+      font-family: inherit;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #e96f99, #f7a2bd);
+      color: white;
+      box-shadow: 0 14px 30px rgba(217, 96, 137, 0.28);
+    }
+
+    .secondary {
+      background: rgba(255, 255, 255, 0.7);
+      color: #4b654b;
+      border: 1px solid rgba(87, 128, 87, 0.22);
+    }
+
+    button:hover, .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 35px rgba(104, 92, 92, 0.14);
+    }
+
+    .garden-card {
+      position: relative;
+      min-height: 470px;
+      border-radius: 36px;
+      background:
+        linear-gradient(rgba(255,255,255,0.24), rgba(255,255,255,0.58)),
+        url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 30px 80px rgba(66, 98, 66, 0.22);
+      overflow: hidden;
+      animation: floatIn 1.1s ease both;
+    }
+
+    .garden-card::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 28px;
+    }
+
+    .mini-card {
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      width: calc(100% - 56px);
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 45px rgba(46, 68, 46, 0.18);
+      z-index: 1;
+    }
+
+    .mini-card h2 {
+      color: #385238;
+      margin-bottom: 10px;
+      font-size: 1.55rem;
+    }
+
+    .mini-card p {
+      color: #657465;
+      line-height: 1.6;
+    }
+
+    .ideas {
+      position: relative;
+      z-index: 2;
+      padding: 20px 9% 90px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .idea-card {
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 18px 45px rgba(86, 110, 86, 0.11);
+      backdrop-filter: blur(10px);
+    }
+
+    .idea-card span {
+      font-size: 2rem;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .idea-card h3 {
+      color: #3c563c;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .idea-card p {
+      color: #647364;
+      line-height: 1.65;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(49, 65, 49, 0.42);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .popup {
+      width: min(520px, 100%);
+      padding: 34px;
+      text-align: center;
+      border-radius: 32px;
+      background:
+        linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.86)),
+        url('https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?auto=format&fit=crop&w=900&q=80');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 30px 80px rgba(36, 52, 36, 0.28);
+      animation: pop 0.35s ease both;
+    }
+
+    .popup .flower {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .popup h2 {
+      font-size: 2.5rem;
+      color: #39553a;
+      margin-bottom: 12px;
+    }
+
+    .popup p {
+      color: #647364;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .popup input {
+      width: 100%;
+      border: 1px solid rgba(89, 119, 89, 0.25);
+      border-radius: 18px;
+      padding: 15px 18px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.78);
+      outline: none;
+      color: #415741;
+      font-family: inherit;
+    }
+
+    .popup input:focus {
+      border-color: #dc7198;
+      box-shadow: 0 0 0 4px rgba(220, 113, 152, 0.14);
+    }
+
+    .close-btn {
+      margin-top: 10px;
+      background: transparent;
+      color: #7b8b7b;
+      padding: 8px 14px;
+    }
+
+    footer {
+      position: relative;
+      z-index: 2;
+      padding: 28px 9%;
+      text-align: center;
+      color: #718071;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(24px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes pop {
+      from { opacity: 0; transform: scale(0.9) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .garden-card {
+        min-height: 380px;
+      }
+
+      .ideas {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="petals" aria-hidden="true">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+
+  <header>
+    <div class="logo">🌷 Bloom Date Ideas</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#question">Question</a>
+    </nav>
+  </header>
+
+  <main id="home" class="hero">
+    <section class="hero-text">
+      <div class="tag">soft flowers • nature walks • cute plans</div>
+      <h1>Let’s make a pretty little day.</h1>
+      <p>
+        A cozy garden-inspired page filled with dreamy colors, soft flowers,
+        and simple romantic ideas for a peaceful day outside.
+      </p>
+      <div class="buttons">
+        <button class="primary" onclick="openModal()">Ask for date ideas</button>
+        <a class="btn secondary" href="#ideas">See cute ideas</a>
+      </div>
+    </section>
+
+    <section class="garden-card" aria-label="Flower garden image">
+      <div class="mini-card">
+        <h2>Nature makes everything sweeter.</h2>
+        <p>Picnic blankets, flower fields, sunsets, iced drinks, and slow walks together.</p>
+      </div>
+    </section>
+  </main>
+
+  <section id="ideas" class="ideas">
+    <article class="idea-card">
+      <span>🧺</span>
+      <h3>Garden Picnic</h3>
+      <p>Pack fruit, drinks, snacks, and a blanket. Find a quiet park spot and just relax.</p>
+    </article>
+
+    <article class="idea-card">
+      <span>🌅</span>
+      <h3>Sunset Walk</h3>
+      <p>Walk somewhere pretty near golden hour and take cute pictures together.</p>
+    </article>
+
+    <article class="idea-card">
+      <span>🌻</span>
+      <h3>Flower Shop Date</h3>
+      <p>Pick flowers for each other, build tiny bouquets, and grab coffee after.</p>
+    </article>
+  </section>
+
+  <div id="question" class="modal show">
+    <div class="popup">
+      <div class="flower">🌸</div>
+      <h2>Date ideas?</h2>
+      <p>What kind of date should we plan: picnic, sunset walk, coffee, flowers, or something random?</p>
+      <input type="text" placeholder="Type a cute date idea here..." />
+      <button class="primary" onclick="saveIdea()">Send idea</button>
+      <br />
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    Made with flowers, soft skies, and a little bit of romance.
+  </footer>
+
+  <script>
+    function openModal() {
+      document.getElementById('question').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('question').classList.remove('show');
+    }
+
+    function saveIdea() {
+      const input = document.querySelector('.popup input');
+      const idea = input.value.trim();
+
+      if (idea.length === 0) {
+        alert('Type a date idea first 🌷');
+        return;
+      }
+
+      alert('Cute idea saved: ' + idea + ' 🌸');
+      input.value = '';
+      closeModal();
+    }
+  </script>
+</body>
+</html>
